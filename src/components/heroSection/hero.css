@@ -1,0 +1,61 @@
+.hero_section{
+    max-width: 1264px;
+    height: 580px;
+    background-image: url("../../images/banner-bg.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+ 
+    .carousel_containt {
+        position: relative;
+        top: 40%;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        z-index: 1;
+        .carousel_container {
+          max-width: 1140px;
+          font-size: 1rem;
+          margin: 0 auto;
+    
+          .containt {
+            & h1 {
+              font-size: 4.5em;
+              width: 100%;
+              color: #ffffff;
+              text-align: center;
+              text-transform: uppercase;
+              font-weight: bold;
+            }
+            .shop-btn {
+              background-color: #252525;
+              width: 170px;
+              margin: 0 auto;
+              margin-top: 60px;
+              margin-bottom: 60px;
+              height: 30px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 1.8rem;
+              & a {
+                background-color: #252525;
+                border-radius: 0.8rem;
+    
+                text-transform: capitalize;
+                width: 100%;
+                color: white;
+                padding: 15px 0;
+              }
+            }
+          }
+        }
+      }
+}
+
+@media (max-width:768px) {
+
+  .hero_section{
+    background-size: cover;
+  }  
+}

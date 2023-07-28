@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../../images/online-shopping.png'
 import menuIcon from '../../images/toggle-icon.png'
 import downArrowIcon from '../../images/drop-down-arrow.png'
@@ -14,6 +14,21 @@ import './navbar.css'
 
 import { NavLink } from 'react-router-dom'
 export const Navigation = () => {
+
+  const [background, setBackground] = useState(false)
+  const [menu, setMenu] = useState(false)
+
+
+  const changeBackground = ()=>{
+    if(window.scrollY>=60){
+      setBackground(true)
+    }
+    else{
+      setBackground(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeBackground)
 
   const responsive = {
     superLargeDesktop: {
@@ -39,13 +54,15 @@ export const Navigation = () => {
 
       <header className='header'>
 
-        <div className='container'>
+        <div className={background?'container active':'container'}>
           <div className='logo'>
+          <NavLink to={'/'}>
             <img src={logo} width={40} height={40} />
+          </NavLink>
           </div>
 
-          <nav className='nav-links'>
-            <ul>
+          <nav className={menu?'nav-links active-nav':'nav-links'}>
+            <ul onClick={()=>setMenu(!menu)}>
               <li>
                 <NavLink to={'/'}>
                   home
@@ -70,28 +87,11 @@ export const Navigation = () => {
             </ul>
           </nav>
 
-          <div className='menu'>
+          <div className='menu' onClick={()=>setMenu(!menu)}>
             <img src={menuIcon} width={30} height={30} />
           </div>
         </div>
-        <div className='carousel_containt'>
-          <div className='carousel_container'>
-            <Carousel responsive={responsive} autoPlay={true} infinite={true} autoPlaySpeed={3000}>
-              <div className='containt'>
-                <h1>get start
-                  <br />
-                  Your favriot shoping
-                </h1>
-                <div className='shop-btn'>
-                  <NavLink to={'/products'}>shop now</NavLink>
-                </div>
-              </div>
-
-            </Carousel>
-          </div>
-
-        </div>
-
+       
 
 
       </header>

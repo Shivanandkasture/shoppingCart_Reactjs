@@ -6,12 +6,18 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
-
+import { ProductProvider } from './contexts/productsContext.jsx'
+import { FilterProvider } from './contexts/filterContext.jsx'
+import { CartProvider } from './contexts/cartContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-  <BrowserRouter>
-  <App />
 
-  </BrowserRouter>
-  </React.StrictMode>,
+  <ProductProvider>
+    <FilterProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartProvider>
+    </FilterProvider>
+  </ProductProvider>
 )

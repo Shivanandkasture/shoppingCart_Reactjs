@@ -1,0 +1,12 @@
+.cart_section{
+    position: relative;
+    top: 60px;
+    background-color: #f8f6f3;
+
+
+    .cart_container{
+
+        margin: 2rem;
+        border: 1px solid red;
+    }
+}
