@@ -3,6 +3,8 @@ import { useProductContext } from '../../contexts/productsContext'
 import './singleproduct.css'
 import { useParams } from 'react-router';
 import { useCartContext } from '../../contexts/cartContext';
+import img from '../../images/sports-shoe1-600x600.jpg'
+import { ProductsPage } from '../products/ProductsPage';
 export const SingleProductPage = () => {
   const { getSingleProduct, singleProduct } = useProductContext()
   const { AddToCart ,cart} = useCartContext()
@@ -28,7 +30,7 @@ export const SingleProductPage = () => {
   useEffect(() => {
 
     getSingleProduct(id)
-  }, [])
+  }, [id])
 
   return (
     <>
@@ -36,7 +38,7 @@ export const SingleProductPage = () => {
 
         <div className='single_container'>
           <div className='product_image'>
-            <img src={image} width={400} height={400} />
+            <img src={img}  />
           </div>
           <div className='product_info'>
             <div className='product_title'>
@@ -63,7 +65,6 @@ export const SingleProductPage = () => {
             </div>
           </div>
         </div>
-
       </section>
     </>
   )

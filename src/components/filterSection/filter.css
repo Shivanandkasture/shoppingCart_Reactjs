@@ -1,9 +1,12 @@
 .filterSection {
   /* width: 300px; */
+  position: sticky;
+  top: 80px;
 
   .filter_container {
     width: 240px;
     margin: 2rem;
+   
 
     .search_box {
       display: flex;
@@ -46,15 +49,18 @@
           outline: none;
           border: none;
           text-transform: capitalize;
+          &:focus {
+            background-color: #7d2ae8;
+            color: white;
+          }
+
         }
 
         .category-btn {
           background-color: #e4e7ed;
           padding: 1rem;
         }
-        .active {
-          color: blueviolet;
-        }
+       
       }
     }
 

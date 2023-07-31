@@ -37,7 +37,7 @@ export const ProductsPage = () => {
 
               {
                 filterProductsData.length===0?<h1 style={{textAlign:'center'}}>no such product</h1>:filterProductsData.map((product) => {
-                return <Product id={product.id} title={product.title} price={product.price} description={product.description} image={product.image} />})
+                return <Product id={product.id} key={product.id} title={product.title} price={product.price} description={product.description} image={product.image} />})
               }
             </div>
           </div>

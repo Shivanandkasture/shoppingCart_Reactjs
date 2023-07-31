@@ -1,5 +1,6 @@
 import './product.css'
 import { NavLink, useParams } from 'react-router-dom'
+import img from '../../images/sports-shoe1-600x600.jpg'
 export const Product = (props) => {
     let { title, id, image, price } = props
 
@@ -7,19 +8,13 @@ export const Product = (props) => {
     return (
         <section className='product'>
             <NavLink to={`/product/${id}`}>
-                <div className='fashion_cart2'>
-                    <div className='product_containt2'>
+                <div className='product_text_container'>
+                    <div className='product_text'>
                         <h1>{title}</h1>
                         <p>Price Rs {price}.</p>
                     </div>
-                    <div className='fashion_img2'>
-                        <img src={image} width={260} height={260} />
-                    </div>
-
-                    <div className='more_details2'>
-                        <div className='view-btn2'>
-                            <NavLink to={`/product/${id}`}>view details</NavLink>
-                        </div>
+                    <div className='product_image'>
+                        <img src={image} />
                     </div>
                 </div>
             </NavLink>

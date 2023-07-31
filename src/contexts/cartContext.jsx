@@ -4,10 +4,13 @@ import { createContext } from "react";
 import cartReducer from "../Reducer/cartReducer";
 import { useEffect } from "react";
 import { json } from "react-router";
+import { useProductContext } from "./productsContext";
 
 const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
+
+    const {All_Products}=useProductContext()
 
 
 
@@ -29,7 +32,9 @@ const getCart = ()=>{
 
     const initialState = {
 
-        cart: getCart()
+        cart: getCart(),
+        isAdded:false,
+        totalPrice:''
 
     }
     const [state, disptach] = useReducer(cartReducer, initialState)
@@ -41,12 +46,37 @@ const getCart = ()=>{
         disptach({ type: 'AddToCart', playload: { singleProduct, quantity} })
     }
 
+
+    const removeProduct = (id)=>{
+
+
+        disptach({ type: 'remove Product', playload: id })
+
+    }
+
+    const decrementQuantity =(id)=>{
+
+        disptach({ type: 'decrement Quantity', playload: id })
+
+
+    }
+
+    const incrementQuantity =(id)=>{
+
+        disptach({ type: 'increment Quantity', playload: id })
+
+
+    }
+
+    
+
     useEffect(()=>{
+        disptach(({type:'Grand Total'}))
         localStorage.setItem('cart',JSON.stringify(state.cart))
 
     },[state.cart])
 
-    return <CartContext.Provider value={{...state, AddToCart}}>
+    return <CartContext.Provider value={{...state, AddToCart,removeProduct,decrementQuantity, incrementQuantity}}>
         {children}
     </CartContext.Provider>
 

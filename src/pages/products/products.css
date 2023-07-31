@@ -1,17 +1,18 @@
 .products {
-  max-width: 1264px;
   width: 100%;
   height: auto;
   background-color: #f8f6f3;
   position: relative;
   top: 60px;
   padding: 2rem 0;
+  border: 1px solid red;
+
 }
 
 .prodcuts_container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 
   justify-content: space-between;
 }
@@ -38,13 +39,31 @@
   .prodcuts_section {
     display: flex;
     flex-wrap: wrap;
-    padding: 2rem;
+    padding: .6rem;
     gap: 2rem;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+    width: 100%;
+
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 568px) {
   .filter_section {
     display: none;
   }
+
+   .prodcuts_container{
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .prodcuts_listing{
+    width: 100%;
+  }
+  
+  .prodcuts_section{
+    width: 100%;
+    flex-direction: column;
+  } 
 }

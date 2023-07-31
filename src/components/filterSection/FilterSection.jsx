@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import { userFilterContext } from '../../contexts/filterContext'
 import './filter.css'
+import { useEffect } from 'react';
 
 export const FilterSection = () => {
 
+
+
     const { filterProductsData, AllProducts, filters: { text, category, maxPrice, price, minPrice }, filtervalue } = userFilterContext();
 
+   
     let categoryBy = (AllProducts, cate) => {
 
         let c = AllProducts.map((product, i) => {
@@ -30,10 +35,10 @@ export const FilterSection = () => {
                 <div className='category_section'>
                     <h1>Filter By Category</h1>
                     {
-                        categoryData.map((c) => {
+                        categoryData.map((c,i) => {
 
-                            return <div className='category-field active'>
-                                <button type='button' name='category' className='category-btn  active' value={c} onClick={filtervalue}>{c}</button>
+                            return <div className='category-field' key={i}>
+                                <button type='button' name='category' className= 'category-btn  active'  value={c} onClick={filtervalue}>{c}</button>
 
                             </div>
                         })

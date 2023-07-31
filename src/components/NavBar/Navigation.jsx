@@ -75,7 +75,7 @@ export const Navigation = () => {
               </li>
               <li>
                 <NavLink to={'/cart'}>
-                  cart
+                <img src={cartIcon} width={25} height={25}/>
                 </NavLink>
               </li>
 
@@ -87,7 +87,7 @@ export const Navigation = () => {
             </ul>
           </nav>
 
-          <div className='menu' onClick={()=>setMenu(!menu)}>
+          <div className='menu' style={{backgroundColor:'black'}} onClick={()=>setMenu(!menu)}>
             <img src={menuIcon} width={30} height={30} />
           </div>
         </div>

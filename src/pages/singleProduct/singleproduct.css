@@ -2,22 +2,27 @@
   width: 100%;
   position: relative;
   top: 60px;
-  padding: 2rem;
+  /* padding: 2rem; */
   background-color: #f8f6f3;
-  height: 100vh;
 
   .single_container {
     max-width: 1240px;
     width: 100%;
     border: 1px solid;
     margin: 0 auto;
-    padding: 2rem;
+    /* padding: 4rem; */
     display: flex;
     flex-wrap: wrap;
 
     .product_image {
       flex-basis: 50%;
       text-align: center;
+      padding: 3rem;
+ & img{
+  width: 100%;
+
+ }
+    
     }
 
     .product_info {
@@ -25,7 +30,6 @@
       padding: 2rem;
       line-height: 2;
       font-size: 1.8rem;
-      border: 1px solid red;
       /* .product_title{
             }
             .prodcut_price{
@@ -47,10 +51,12 @@
             outline: none;
             font-size: 2rem;
             background-color: gold;
+            transition: all 0.2s ease;
 
-            &:focus {
-              color: blueviolet;
+            &:active{
+              transform: scale(0.96);
             }
+          
           }
         }
         & span {
@@ -62,13 +68,30 @@
           & button {
             border: none;
             outline: none;
-            padding: 1rem;
+            padding: .8rem 2.2rem;
             border-radius: 0.3rem;
             color: white;
-            background-color: blueviolet;
+            background-color: #7d2ae8;
+            transition: all 0.2s ease;
+            &:active{
+              transform: scale(0.96);
+            }
           }
+
+       
         }
       }
     }
   }
+}
+
+
+@media (max-width:768px) {
+  .product_image{
+    border: 1px solid red;
+  }
+  .single_container{
+    flex-direction: column;
+  }
+  
 }

@@ -34,6 +34,7 @@ const FilterProvider = ({ children }) => {
         e.preventDefault()
         let name = e.target.name
         let value = e.target.value
+        
 
         disptach({ type: 'filterValue', playload: { name, value } })
 
